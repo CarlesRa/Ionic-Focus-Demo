@@ -1,0 +1,7 @@
+{
+  "name": "ionic-focus-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
