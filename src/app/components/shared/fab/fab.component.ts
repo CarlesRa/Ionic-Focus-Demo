@@ -9,6 +9,21 @@ export class FabComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+	ngOnInit() {}
+	
+	addContact() {
+		console.log('add');
+		
+	}
+
+	updateContact() {
+		console.log('update');
+		
+	}
+
+	removeContact() {
+		console.log('remove');
+		
+	}
 
 }

@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FabComponent } from './fab/fab.component';
+import { CardComponent } from './shared/card/card.component';
+import { IonicModule } from '@ionic/angular';
+import { FabComponent } from './shared/fab/fab.component';
 
 
 
 @NgModule({
   declarations: [
-		FabComponent
+		CardComponent,
+		FabComponent,
 	],
   imports: [
-    CommonModule
-  ]
+		CommonModule,
+		IonicModule
+	],
+	exports: [
+		CardComponent,
+		FabComponent
+	]
 })
 export class ComponentsModule { }
