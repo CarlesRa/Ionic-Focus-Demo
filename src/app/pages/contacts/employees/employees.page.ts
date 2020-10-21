@@ -4,13 +4,13 @@ import { ContactsService } from 'src/app/services/contacts/contacts.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
 
 @Component({
-  selector: 'app-friends',
-  templateUrl: './friends.page.html',
-  styleUrls: ['./friends.page.scss'],
+  selector: 'app-employees',
+  templateUrl: './employees.page.html',
+  styleUrls: ['./employees.page.scss'],
 })
-export class FriendsPage implements OnInit {
+export class EmployeesPage implements OnInit {
 
-	contacts: Contact[];
+  contacts: Contact[];
   constructor(
 		private loadingService: LoadingService,
 		private contactsService: ContactsService
@@ -18,7 +18,8 @@ export class FriendsPage implements OnInit {
 
   ngOnInit() {
 		this.initializeItems();
-  }
+	}
+	
 
 	getItems(event: any) {
 
@@ -38,7 +39,7 @@ export class FriendsPage implements OnInit {
 
 		const loader = this.loadingService.showLoading('Espere por favor...')
 		.then(() => {
-				this.contactsService.getFriends().subscribe((contacts: Contact[]) => {
+				this.contactsService.getEmployees().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
 				this.loadingService.hideLoading();	
 			},
@@ -48,4 +49,5 @@ export class FriendsPage implements OnInit {
 			});
 		})
 	}
+
 }

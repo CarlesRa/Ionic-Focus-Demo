@@ -27,6 +27,15 @@ const routes: Routes = [
 				]
 			},
 			{
+				path: 'employees',
+				children: [
+					{
+						path: '',
+						loadChildren: () => import('./employees/employees.module').then( m => m.EmployeesPageModule)
+					}
+				]
+			},
+			{
 				path: 'friends',
 				children: [
 					{
@@ -47,6 +56,10 @@ const routes: Routes = [
 		redirectTo: '/contacts/tabs/all',
 		pathMatch: 'full'
 	},
+  {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.module').then( m => m.EmployeesPageModule)
+  },
 	//will go other routes
 ];
 
