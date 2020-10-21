@@ -8,7 +8,7 @@ import { Contact } from 'src/app/models/contact.model';
 })
 export class CardComponent implements OnInit {
 
-	@Input() contactos: string[];
+	@Input() contactos: Contact[];
 
   constructor() { }
 
@@ -16,10 +16,9 @@ export class CardComponent implements OnInit {
 
 	viewDetailContact(contact: any) {
 		console.log(contact);
-		
 	} 
 	
-	sendMessage() {
+	updateContact() {
 
 		console.log('send message');
 		

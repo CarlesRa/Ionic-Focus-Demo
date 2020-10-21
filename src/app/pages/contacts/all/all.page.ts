@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from 'src/app/models/contact.model';
+import { ContactsService } from 'src/app/services/contacts/contacts.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
 
 @Component({
@@ -9,54 +11,45 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
 export class AllPage implements OnInit {
 
 	items: string[];
-	loader: any;
+	contacts: Contact[];
 
   constructor(
-		private loadingService: LoadingService
+		private loadingService: LoadingService,
+		private contactsService: ContactsService
 	) {}
 
   ngOnInit() {
 
-		this.showLoading()
 		this.initializeItems();
-		
   }
 
 	getItems(event: any) {
 
-		this.initializeItems();
 		const val = event.target.value;
 
 		if (val && val.trim() != '') {
-			this.items = this.items.filter((item) => {
-				return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+			this.contacts = this.contacts.filter((item) => {
+				return (item.firstName.toLowerCase().indexOf(val.toLowerCase()) > -1);
 			});
+		}
+		else {
+			this.initializeItems();
 		}
 	}
 
 	initializeItems() {
 
-		setTimeout(() => {
-			this.items = [
-				'Amsterdam',
-				'Viena',
-				'Paris',
-				'Madrid',
-				'Amsterdam',
-				'Viena',
-				'Paris',
-				'Madrid',
-				'Amsterdam',
-				'Viena',
-				'Paris',
-				'Madrid'
-			].sort();
-			this.loadingService.hideLoading();
-		}, 2000);
-	}
-	
-	async showLoading() {
-		this.loader = this.loadingService.showLoading('Cargando...');
+		const loader = this.loadingService.showLoading('Espere por favor...')
+		.then(() => {
+				this.contactsService.getAll().subscribe((contacts: Contact[]) => {
+				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
+				this.loadingService.hideLoading();	
+			},
+			() => {
+				console.error('error en la petición');
+				
+			});
+		})
 	}
 }
 

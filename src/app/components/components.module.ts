@@ -13,7 +13,7 @@ import { FabComponent } from './shared/fab/fab.component';
 	],
   imports: [
 		CommonModule,
-		IonicModule
+		IonicModule,
 	],
 	exports: [
 		CardComponent,

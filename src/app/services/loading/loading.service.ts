@@ -5,9 +5,9 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class LoadingService {
-	loading: any;
+	loading;
   constructor(
-		private loadingCtrl: LoadingController
+		public loadingCtrl: LoadingController
 	) { }
 
 	async showLoading(message: string) {
@@ -15,6 +15,7 @@ export class LoadingService {
 			message: message
 		});
 		this.loading.present();
+		return this.loading;
 	}
 
 	hideLoading() {
