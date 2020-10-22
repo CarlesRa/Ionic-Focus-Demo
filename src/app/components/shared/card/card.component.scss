@@ -13,16 +13,19 @@
 	font-size: 1.5rem;
 }
 
-.back-color-card {
-	background-color: var(--ion-color-tertiary);
-	display: inline;
-	padding: 10px;
-	color: white;
-}
 .back-color {
 	background-color: rgb(234, 190, 240);
 }
 
 ion-card {
 	border-top: 3px solid var(--ion-color-tertiary);
+	background-image: url('../../../../assets/img/back02.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 25%;
+}
+
+.card-container {
+	margin-bottom: 10px;
 }
