@@ -1,3 +1,28 @@
 .m-left {
 	margin-left: 5px;
 }
+.rounded {
+	border-radius: 70%;
+}
+
+.semi-rounded {
+	border-radius: 15%;
+}
+
+.font-large {
+	font-size: 1.5rem;
+}
+
+.back-color-card {
+	background-color: var(--ion-color-tertiary);
+	display: inline;
+	padding: 10px;
+	color: white;
+}
+.back-color {
+	background-color: rgb(234, 190, 240);
+}
+
+ion-card {
+	border-top: 3px solid var(--ion-color-tertiary);
+}

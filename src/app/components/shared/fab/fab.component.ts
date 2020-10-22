@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fab',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FabComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+		private router: Router
+	) { }
 
 	ngOnInit() {}
 	
 	addContact() {
-		console.log('add');
+		this.router.navigate(['/new'])
 		
 	}
 
@@ -22,7 +25,7 @@ export class FabComponent implements OnInit {
 	}
 
 	removeContact() {
-		console.log('remove');
+		console.log('remove contact');
 		
 	}
 

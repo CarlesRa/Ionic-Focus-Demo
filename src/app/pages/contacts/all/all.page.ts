@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from 'src/app/services/contacts/contacts.service';
 import { LoadingService } from 'src/app/services/loading/loading.service';
@@ -12,6 +12,7 @@ export class AllPage implements OnInit {
 
 	items: string[];
 	contacts: Contact[];
+	
 
   constructor(
 		private loadingService: LoadingService,

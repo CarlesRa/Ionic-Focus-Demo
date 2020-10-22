@@ -7,14 +7,16 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-content class="back-color">
+	<div class="back-color">
+		<ion-searchbar (ionInput)="getItems($event)" color="light"></ion-searchbar>
 	<ion-grid>
 		<ion-row>
 			<ion-col size="12">
-				<app-card [contactos]="contacts"></app-card>
+				<app-card [contactos]="contacts" (contactoBorrado)="initializeItems()"></app-card>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
+	</div>
 </ion-content>
 <app-fab></app-fab>

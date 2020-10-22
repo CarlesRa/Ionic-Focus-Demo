@@ -10,7 +10,9 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
 })
 export class EmployeesPage implements OnInit {
 
-  contacts: Contact[];
+	contacts: Contact[];
+	mostrarLabel: boolean;
+
   constructor(
 		private loadingService: LoadingService,
 		private contactsService: ContactsService
@@ -36,12 +38,15 @@ export class EmployeesPage implements OnInit {
 	}
 
 	initializeItems() {
-
+		this.mostrarLabel = false;
 		const loader = this.loadingService.showLoading('Espere por favor...')
 		.then(() => {
 				this.contactsService.getEmployees().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
 				this.loadingService.hideLoading();	
+				if(!this.contacts) {
+					this.mostrarLabel = true;
+				}
 			},
 			() => {
 				console.error('error en la petición');

@@ -57,8 +57,8 @@ const routes: Routes = [
 		pathMatch: 'full'
 	},
   {
-    path: 'employees',
-    loadChildren: () => import('./employees/employees.module').then( m => m.EmployeesPageModule)
+    path: 'detail/:id',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
 	//will go other routes
 ];
