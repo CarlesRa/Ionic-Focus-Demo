@@ -12,7 +12,7 @@ export class AllPage implements OnInit {
 
 	items: string[];
 	contacts: Contact[];
-	
+	mostrarLabel: boolean;
 
   constructor(
 		private loadingService: LoadingService,

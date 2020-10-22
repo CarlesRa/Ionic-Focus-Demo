@@ -11,7 +11,7 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
 export class EmployeesPage implements OnInit {
 
 	contacts: Contact[];
-	mostrarLabel: boolean;
+	mostrarLabel: boolean = false;
 
   constructor(
 		private loadingService: LoadingService,
@@ -38,15 +38,13 @@ export class EmployeesPage implements OnInit {
 	}
 
 	initializeItems() {
-		this.mostrarLabel = false;
 		const loader = this.loadingService.showLoading('Espere por favor...')
 		.then(() => {
 				this.contactsService.getEmployees().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
 				this.loadingService.hideLoading();	
-				if(!this.contacts) {
-					this.mostrarLabel = true;
-				}
+				console.log(this.mostrarLabel);
+				
 			},
 			() => {
 				console.error('error en la petición');

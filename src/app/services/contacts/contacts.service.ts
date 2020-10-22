@@ -17,6 +17,10 @@ export class ContactsService {
 		return this.httpClient.get(this.BASE_URL);		
 	}
 
+	getContactById(contactId: any) {
+		return this.httpClient.get(`${this.BASE_URL}/contact/${contactId}`)
+	}
+
 	getClients() {
 		
 		return this.httpClient.get(this.BASE_URL + '/clients');
@@ -32,10 +36,10 @@ export class ContactsService {
 		return this.httpClient.get(this.BASE_URL + '/employees');
 	}
 
-	async deleteContact(contactId: number): Promise<any> {
+	deleteContact(contactId: number) {
 
 		console.log(`${this.BASE_URL}/delete/${contactId}`);
 		
-		return this.httpClient.delete(`${this.BASE_URL}/delete/${contactId}`).subscribe((res) => console.log(res));
+		return this.httpClient.delete(`${this.BASE_URL}/delete/${contactId}`);
 	}
 }

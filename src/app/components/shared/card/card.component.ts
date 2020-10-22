@@ -13,14 +13,20 @@ export class CardComponent implements OnInit {
 
 	@Input() contactos: Contact[];
 	@Output() contactoBorrado = new EventEmitter();
+	@Output() sinContactos = new EventEmitter();
 
   constructor(
 		private contactsService: ContactsService,
 		private alertControler: AlertController,
 		private router: Router
-	) { }
+	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		
+		setTimeout(() => {
+			this.comprobarContactos();
+		},1000);
+	}
 
 	viewDetailContact(contact: any) {
 		console.log(contact);
@@ -43,13 +49,10 @@ export class CardComponent implements OnInit {
 					text: 'SÍ',
 					role: 'success',
 					handler: () => {
-						this.contactsService.deleteContact(contactId).then(() => {
+						this.contactsService.deleteContact(contactId).subscribe(() => {
 							this.contactoBorrado.emit();
-						})
-						.catch(() => {
-							console.error('Error al eliminar el contacto');
+							this.ngOnInit();
 						});
-						
 					}
 				},
 				{
@@ -68,6 +71,17 @@ export class CardComponent implements OnInit {
 
 	showDetail(id: number) {
 		this.router.navigate(['contacts','detail', id])
+	}
+
+	comprobarContactos() {
+
+		if (this.contactos.length <= 0) {
+			console.log('entra if');
+				
+			this.sinContactos.emit(true);
+		}
+		else 
+			this.sinContactos.emit(false);
 	}
 
 }

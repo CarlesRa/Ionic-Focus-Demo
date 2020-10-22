@@ -1,0 +1,35 @@
+.rounded {
+	border-radius: 50%;
+}
+
+.text-big {
+	font-size: 4rem;
+}
+
+.text-midle {
+	font-size: 2.5rem;
+	color: white;
+}
+.text-small {
+	font-size: 1.6rem;
+	color: white;
+}
+.back-ground {
+	background-image: url('../../../../assets/img/back.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.back-color {
+	background-color: rgba(0,0,0,0.6);
+	padding: 10px;
+}
+
+ion-icon {
+	color: white;
+}
+ion-content{
+
+	--ion-background-color:#f5a9f5;
+}

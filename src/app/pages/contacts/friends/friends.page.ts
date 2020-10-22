@@ -11,6 +11,8 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
 export class FriendsPage implements OnInit {
 
 	contacts: Contact[];
+	mostrarLabel: boolean;
+
   constructor(
 		private loadingService: LoadingService,
 		private contactsService: ContactsService
