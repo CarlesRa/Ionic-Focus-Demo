@@ -28,7 +28,6 @@ export class DetailPage implements OnInit {
 		this.contactsService.getContactById(this.id).
 			subscribe((contact:Contact) => {
 				this.contact = contact;
-				console.log(this.contact);
 				this.initials = this.getInitials();
 				this.mostrar = true;
 			});

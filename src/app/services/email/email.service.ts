@@ -19,6 +19,6 @@ export class EmailService {
 		};
 		console.log(JSON.stringify(email));
 		
-		return this.httpClient.post<Email>(this.BASE_URL, JSON.stringify(email), httpHeader);
+		return this.httpClient.post<Email>(this.BASE_URL, /* JSON.stringify(email) */ email, httpHeader);
 	}
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact.model';
 import { Email } from 'src/app/models/email.model';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { ContactsService } from 'src/app/services/contacts/contacts.service';
 import { EmailService } from 'src/app/services/email/email.service';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 
 @Component({
   selector: 'app-send-email',
@@ -23,35 +25,39 @@ export class SendEmailPage implements OnInit {
   constructor(
 		private contactsService: ContactsService,
 		private aRoute: ActivatedRoute,
+		private router: Router,
 		private formBd: FormBuilder,
-		private emailService: EmailService
+		private emailService: EmailService,
+		private loadingService: LoadingService,
+		private alertService: AlertService
 	) { 
+
 		this.id = this.aRoute.snapshot.paramMap.get('id');
 		this.email = new Email();
 		this.contactsService.getContactById(this.id).
 			subscribe((contact:Contact) => {
 				this.contact = contact;
-				console.log(this.contact);
 				this.createForm();
 			});
 	}
 
   ngOnInit() {
 	}
-
-	comprobarCampo(event) {
-		console.log(event);
-	}
 	
 	onSubmit() {
 
 		if (this.forma.valid) {
+
+			this.loadingService.showLoading('Enviando Correo')
+
 			this.emailService.sendMail(this.email).subscribe(() => {
-				console.log('enviado');
+				this.loadingService.hideLoading();
+				this.alertService.presentAlert('Mensaje Enviado!!');
+				this.router.navigate(['contacts']);
 				
-			},(err) => {
-				console.log('error: ' + err);
-				
+			},() => {
+				this.alertService.presentAlert('Error al enviar el mensaje...');
+				this.router.navigate(['contacts']);
 			})
 		}
 	}

@@ -18,6 +18,13 @@ export class LoadingService {
 		return this.loading;
 	}
 
+	async showLoadingToggle(message: string) {
+		this.loading = await this.loadingCtrl.create({
+			message: message,
+			duration: 2000
+		});
+	}
+
 	hideLoading() {
 		this.loading.dismiss();
 	}

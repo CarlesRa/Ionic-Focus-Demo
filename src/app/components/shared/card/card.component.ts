@@ -28,16 +28,6 @@ export class CardComponent implements OnInit {
 		},1000);
 	}
 
-	viewDetailContact(contact: any) {
-		console.log(contact);
-	} 
-	
-	updateContact() {
-
-		console.log('send message');
-		
-	}
-
 	async removeContact(contactId: number) {
 
 		const alert = await this.alertControler.create({
@@ -76,8 +66,7 @@ export class CardComponent implements OnInit {
 	comprobarContactos() {
 
 		if (this.contactos.length <= 0) {
-			console.log('entra if');
-				
+
 			this.sinContactos.emit(true);
 		}
 		else 
