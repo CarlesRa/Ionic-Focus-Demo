@@ -3,8 +3,14 @@
 }
 
 ion-searchbar {
-	--color: white !important;
+	/* --color: white !important;
 	--icon-color: white !important;
 	--background: transparent;
-	--clear-button-color: white;
+	--clear-button-color: white; */
 }	
+
+ion-toolbar {
+	--background: red;
+
+	/* url('../../../../assets/img/back.jpg') no-repeat fixed center;  */
+}

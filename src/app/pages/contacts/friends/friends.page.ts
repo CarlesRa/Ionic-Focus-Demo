@@ -12,6 +12,7 @@ export class FriendsPage implements OnInit {
 
 	contacts: Contact[];
 	mostrarLabel: boolean;
+	isSearchOpened = false;
 
   constructor(
 		private loadingService: LoadingService,

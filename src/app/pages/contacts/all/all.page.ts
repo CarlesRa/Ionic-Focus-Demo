@@ -13,6 +13,7 @@ export class AllPage implements OnInit {
 	items: string[];
 	contacts: Contact[];
 	mostrarLabel: boolean;
+	isSearchOpened = false;
 
   constructor(
 		private loadingService: LoadingService,
@@ -22,7 +23,12 @@ export class AllPage implements OnInit {
   ngOnInit() {
 
 		this.initializeItems();
-  }
+	}
+	
+	opened() {
+		console.log('pulsado boton');
+		
+	}
 
 	getItems(event: any) {
 

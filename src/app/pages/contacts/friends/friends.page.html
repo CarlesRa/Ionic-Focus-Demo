@@ -3,7 +3,17 @@
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 		</ion-buttons>
-		<ion-title>Amigos</ion-title>
+		<ion-title *ngIf="!isSearchOpened">Amistades</ion-title>
+
+		<app-search (sendSearchEvent)="getItems($event)" 
+								(pressedCancelButton)="isSearchOpened=$event" 
+								*ngIf="isSearchOpened"></app-search>
+
+		<ion-buttons slot="end">
+			<ion-button (click)="isSearchOpened=true">
+				<ion-icon name="search" *ngIf="!isSearchOpened"></ion-icon>
+			</ion-button>
+		</ion-buttons>			
 	</ion-toolbar>
 </ion-header>
 

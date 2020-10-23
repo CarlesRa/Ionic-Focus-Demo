@@ -3,7 +3,18 @@
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 		</ion-buttons>
-		<ion-title>Todos los Contactos</ion-title>
+		<ion-title *ngIf="!isSearchOpened">Todos los Contactos</ion-title>
+
+		<app-search (sendSearchEvent)="getItems($event)" 
+								(pressedCancelButton)="isSearchOpened=$event" 
+								*ngIf="isSearchOpened"></app-search>
+
+		<ion-buttons slot="end">
+			<ion-button (click)="isSearchOpened=true">
+				<ion-icon name="search" *ngIf="!isSearchOpened"></ion-icon>
+			</ion-button>
+		</ion-buttons>			
+		
 	</ion-toolbar>
 </ion-header>
 
@@ -12,7 +23,6 @@
 		<ion-row>
 			<ion-col size-md="8" offset-md="2">
 				<div class="back-color">
-					<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 					<ion-grid>
 						<ion-row>
 							<ion-col size="12">

@@ -12,6 +12,7 @@ export class EmployeesPage implements OnInit {
 
 	contacts: Contact[];
 	mostrarLabel: boolean = false;
+	isSearchOpened = false;
 
   constructor(
 		private loadingService: LoadingService,
