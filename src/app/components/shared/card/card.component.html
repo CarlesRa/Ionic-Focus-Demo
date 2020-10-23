@@ -1,19 +1,24 @@
 <ion-item-sliding *ngFor="let contact of contactos">
+
 	<ion-item-options side="start">
-		<ion-item-option (click)="removeContact(contact.id)" color="danger">
-			<ion-icon name="trash" slot="icon-only"></ion-icon>
+		<ion-item-option (click)="removeContact(contact.id)" color="transparent">
+			<ion-icon name="trash" slot="icon-only" color="light"></ion-icon>
 		</ion-item-option>
 	</ion-item-options>
+
 	<ion-item-options side="end">
-		<ion-item-option (click)="updateContact()" color="warning">
+		<ion-item-option (click)="updateContact()" color="transparent">
 			<ion-icon name="pencil" slot="icon-only" color="light"></ion-icon>
 		</ion-item-option>
 	</ion-item-options>
 
 	<ion-item (click)="showDetail(contact.id)" lines="none" color="transparent">
-		<ion-icon name="person" slot="start" color="light"></ion-icon>
+
+		<ion-icon name="person" color="light" slot="start"></ion-icon>
 		<ion-label color="light">
 			{{ contact.firstName }} {{ contact.lastName }}
 		</ion-label>
+		<ion-icon name="chevron-forward" color="light"></ion-icon>
 	</ion-item>
+
 </ion-item-sliding>

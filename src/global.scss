@@ -36,3 +36,10 @@ ion-content{
 ion-icon {
 	font-size: 1.5rem;
 }
+ion-toolbar {
+	--background: url('./assets/img/back02.jpg') no-repeat fixed center; 
+}
+ion-label {
+	--color: white;
+}
+

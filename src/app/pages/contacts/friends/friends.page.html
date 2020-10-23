@@ -1,26 +1,35 @@
 <ion-header>
-  <ion-toolbar color="primary">
+	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
 			<ion-menu-button></ion-menu-button>
 		</ion-buttons>
 		<ion-title>Amigos</ion-title>
-  </ion-toolbar>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 	<ion-grid>
 		<ion-row>
-			<ion-col size="12">
-				<app-card [contactos]="contacts" (contactoBorrado)="initializeItems()"
-				 					*ngIf="!mostrarLabel" (sinContactos)="mostrarLabel=$event"></app-card>
-			</ion-col>
-			<ion-col size="12">
-				<div class="ion-text-center center-self">
-					<label *ngIf="mostrarLabel" color="light">No hay Contactos que mostrar...</label>
-				</div>
+			<ion-col size-md="8" offset-md="2">
+				<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+				<ion-grid>
+					<ion-row>
+						<ion-col size="12">
+							<app-card [contactos]="contacts" (contactoBorrado)="initializeItems()" *ngIf="!mostrarLabel"
+								(sinContactos)="mostrarLabel=$event"></app-card>
+						</ion-col>
+						<ion-col size="12">
+							<div class="ion-text-center center-self">
+								<ion-label *ngIf="mostrarLabel" color="light">No hay Contactos que mostrar...</ion-label>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
-	<app-fab></app-fab>
+	
+
 </ion-content>
+
+<app-fab></app-fab>
