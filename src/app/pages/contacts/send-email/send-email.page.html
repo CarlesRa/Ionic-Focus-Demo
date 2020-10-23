@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="contacts"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Enviar Correo</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col size="10" offset="1">
+				<form class="m-top" [formGroup]="forma" (ngSubmit)="onSubmit()" autocomplete="off" novalidate *ngIf="mostrar">
+					<ion-card>
+						<ion-card-content>
+							<ion-item>
+								<ion-label position="floating">From</ion-label>
+								<ion-input type="email" formControlName="from" [(ngModel)]="email.from"
+									(mouseleave)="comprobarCampo($event)"></ion-input>
+								<ion-label *ngIf="mostrarLabel" color="warning">Debe introducir un email origen</ion-label>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Asunto</ion-label>
+								<ion-input type="email" formControlName="subject" [(ngModel)]="email.subject"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Mensaje</ion-label>
+								<ion-textarea type="text" formControlName="text" [(ngModel)]="email.text"></ion-textarea>
+							</ion-item>
+							<ion-button [disabled]="!forma.valid" type="submit" expand="block">
+								Enviar
+							</ion-button>
+						</ion-card-content>
+					</ion-card>
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

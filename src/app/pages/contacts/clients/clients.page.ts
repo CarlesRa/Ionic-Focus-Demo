@@ -39,10 +39,9 @@ export class ClientsPage implements OnInit {
 	}
 
 	initializeItems() {
-
 		const loader = this.loadingService.showLoading('Espere por favor...')
 		.then(() => {
-				this.contactsService.getClients().subscribe((contacts: Contact[]) => {
+				this.contactsService.getEmployees().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
 				this.loadingService.hideLoading();	
 			},

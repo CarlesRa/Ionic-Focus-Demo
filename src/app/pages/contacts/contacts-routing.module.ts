@@ -60,6 +60,10 @@ const routes: Routes = [
     path: 'detail/:id',
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
+  {
+    path: 'send/:id',
+    loadChildren: () => import('./send-email/send-email.module').then( m => m.SendEmailPageModule)
+  },
 	//will go other routes
 ];
 

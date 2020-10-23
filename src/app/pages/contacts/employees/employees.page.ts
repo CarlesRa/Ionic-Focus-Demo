@@ -43,9 +43,7 @@ export class EmployeesPage implements OnInit {
 		.then(() => {
 				this.contactsService.getEmployees().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
-				this.loadingService.hideLoading();	
-				console.log(this.mostrarLabel);
-				
+				this.loadingService.hideLoading();		
 			},
 			() => {
 				console.error('error en la petición');
