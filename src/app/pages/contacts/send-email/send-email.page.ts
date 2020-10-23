@@ -65,8 +65,8 @@ export class SendEmailPage implements OnInit {
 	createForm() {
 
 		this.forma = this.formBd.group({
-			from: ['', [Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'),
-									Validators.required]] ,
+			/* from: ['', [Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'),
+									Validators.required]] , */
 			subject: ['', [Validators.required]],
 			text: ['', [Validators.minLength(1), Validators.required]]
 		});
