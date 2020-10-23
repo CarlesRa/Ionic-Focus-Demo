@@ -63,7 +63,11 @@ const routes: Routes = [
   {
     path: 'send/:id',
     loadChildren: () => import('./send-email/send-email.module').then( m => m.SendEmailPageModule)
-  },
+	},
+	{
+		path: 'new',
+		loadChildren: () => import('./new-contact/new-contact.module').then( m => m.NewContactPageModule)
+	},
 	//will go other routes
 ];
 

@@ -12,10 +12,6 @@ const routes: Routes = [
 		loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
 	},
   {
-    path: 'new',
-    loadChildren: () => import('./pages/new-contact/new-contact.module').then( m => m.NewContactPageModule)
-  },
-  {
     path: 'edit',
     loadChildren: () => import('./pages/edit/edit.module').then( m => m.EditPageModule)
   },

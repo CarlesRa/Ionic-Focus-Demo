@@ -15,7 +15,7 @@ export class FabComponent implements OnInit {
 	ngOnInit() {}
 	
 	addContact() {
-		this.router.navigate(['/new'])
+		this.router.navigate(['contacts', 'new'])
 		
 	}
 
