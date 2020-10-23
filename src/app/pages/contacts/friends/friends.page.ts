@@ -38,12 +38,11 @@ export class FriendsPage implements OnInit {
 	}
 
 	initializeItems() {
-
 		const loader = this.loadingService.showLoading('Espere por favor...')
 		.then(() => {
 				this.contactsService.getFriends().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
-				this.loadingService.hideLoading();	
+				this.loadingService.hideLoading();		
 			},
 			() => {
 				console.error('error en la petición');

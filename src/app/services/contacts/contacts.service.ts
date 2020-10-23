@@ -23,17 +23,17 @@ export class ContactsService {
 
 	getClients() {
 		
-		return this.httpClient.get(`${this.BASE_URL}'/clients'`);
+		return this.httpClient.get(`${this.BASE_URL}/clients`);
 	}
 
 	getFriends() {
 
-		return this.httpClient.get(`${this.BASE_URL}'/friends'`);
+		return this.httpClient.get(`${this.BASE_URL}/friends`);
 	}
 
 	getEmployees() {
 
-		return this.httpClient.get(this.BASE_URL + '/employees');
+		return this.httpClient.get(`${this.BASE_URL}/employees`);
 	}
 
 	deleteContact(contactId: number) {
