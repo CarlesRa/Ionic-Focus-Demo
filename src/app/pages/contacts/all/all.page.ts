@@ -20,11 +20,12 @@ export class AllPage implements OnInit {
 		private contactsService: ContactsService
 	) {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
-		this.initializeItems();
+	ionViewDidEnter(){
+		this.initializeItems();		
 	}
-	
+
 	opened() {
 		console.log('pulsado boton');
 		

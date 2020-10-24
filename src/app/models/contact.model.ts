@@ -2,8 +2,8 @@ import { ContactType } from '../enums/type.enum';
 
 export class Contact {
 
+	id: number;
 	constructor(
-		public id: number,
 		public firstName: string,
 		public lastName: string,
 		public email: string,

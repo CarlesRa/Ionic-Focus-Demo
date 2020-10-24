@@ -19,9 +19,11 @@ export class FriendsPage implements OnInit {
 		private contactsService: ContactsService
 	) { }
 
-  ngOnInit() {
-		this.initializeItems();
-  }
+	ngOnInit() {}
+	
+	ionViewDidEnter(){
+		this.initializeItems();		
+	}
 
 	getItems(event: any) {
 

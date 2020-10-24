@@ -19,8 +19,10 @@ export class ClientsPage implements OnInit {
 		private contactsService: ContactsService
 	) { }
 
-  ngOnInit() {
-		this.initializeItems();
+  ngOnInit() {}
+
+	ionViewDidEnter(){
+		this.initializeItems();		
 	}
 	
 

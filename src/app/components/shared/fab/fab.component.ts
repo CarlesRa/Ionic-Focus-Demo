@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-fab',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
 export class FabComponent implements OnInit {
 
   constructor(
-		private router: Router
+		private navCtrl: NavController
 	) { }
 
 	ngOnInit() {}
 	
 	addContact() {
-		this.router.navigate(['contacts', 'new'])
+		this.navCtrl.navigateRoot(['/contacts', 'new'])
 		
 	}
 

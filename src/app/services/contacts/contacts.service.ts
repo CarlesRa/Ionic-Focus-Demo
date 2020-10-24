@@ -1,5 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Contact } from 'src/app/models/contact.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,13 +33,21 @@ export class ContactsService {
 	}
 
 	getEmployees() {
-
 		return this.httpClient.get(`${this.BASE_URL}/employees`);
 	}
 
-	deleteContact(contactId: number) {
+	createContact(contact: Contact) {
 
-		console.log(`${this.BASE_URL}/delete/${contactId}`);
+		const httpHeader = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json',
+			'Access-Control-Allow-Origin': '*'})
+		};
+
+		return this.httpClient.post<Contact>(`${this.BASE_URL}/create`, 
+												                 contact, httpHeader)
+	}
+
+	deleteContact(contactId: number) {
 		
 		return this.httpClient.delete(`${this.BASE_URL}/delete/${contactId}`);
 	}

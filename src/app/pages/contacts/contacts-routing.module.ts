@@ -68,6 +68,14 @@ const routes: Routes = [
 		path: 'new',
 		loadChildren: () => import('./new-contact/new-contact.module').then( m => m.NewContactPageModule)
 	},
+	{
+    path: 'edit',
+    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+	},
+	{
+    path: 'edit/:id',
+    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+  },
 	//will go other routes
 ];
 

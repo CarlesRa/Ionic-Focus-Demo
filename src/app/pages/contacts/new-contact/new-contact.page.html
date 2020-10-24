@@ -1,9 +1,60 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>new-contact</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="contacts"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Añadir Contacto</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+	<ion-grid>
+		<ion-row>
+			<ion-col size-md='8' offset-md='2'>
+				<ion-card *ngIf="mostrar">
+					<ion-card-header>
+						<ion-card-title class="ion-text-center">Nuevo Contacto</ion-card-title>
+						<ion-card-subtitle class="ion-text-center">Añada un nuevo contacto</ion-card-subtitle>
+					</ion-card-header>
+					<ion-card-content>
+						<form [formGroup]="forma" (ngSubmit)="onSubmit()" autocomplete="off" novalidate *ngIf="mostrar"> 
+							<ion-item>
+								<ion-label position="floating">Nombre</ion-label>
+								<ion-input formControlName="firstName" [(ngModel)]="firstName"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Apellido</ion-label>
+								<ion-input formControlName="lastName" [(ngModel)]="lastName"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Correo</ion-label>
+								<ion-input formControlName="email" [(ngModel)]="email"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Teléfono</ion-label>
+								<ion-input formControlName="phone" type="number" [(ngModel)]="phone"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Ciudad</ion-label>
+								<ion-input formControlName="city" [(ngModel)]="city"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">País</ion-label>
+								<ion-input formControlName="country" [(ngModel)]="country"></ion-input>
+							</ion-item>
+							<ion-item>
+								<ion-label position="floating">Tipo de Contacto</ion-label>
+								<ion-select formControlName="contactType" [(ngModel)]="contactType">
+									<ion-select-option value="Amistad">Amistad</ion-select-option>
+									<ion-select-option value="Empleado">Empleado</ion-select-option>
+									<ion-select-option value="Cliente">Cliente</ion-select-option>
+								</ion-select>
+							</ion-item>
+							<ion-button [disabled]="!forma.valid" expand="block" type="submit" color="primary">Crear</ion-button>
+						</form>
+					</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

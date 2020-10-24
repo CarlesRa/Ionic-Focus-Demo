@@ -31,7 +31,8 @@
 						</ion-item>
 						<ion-item color="transparent" lines="none">
 							<ion-icon name="mail" class="text-small" slot="start"></ion-icon>
-							<ion-label class="text-small">{{ contact.email }}</ion-label>
+							<ion-label class="text-mail">{{ contact.email }}</ion-label>
+							<ion-button slot="end" color="primary" (click)="sendMail()">SEND</ion-button>
 						</ion-item>
 						<ion-item color="transparent" lines="none">
 							<ion-icon name="business" class="text-small" slot="start"></ion-icon>
@@ -45,7 +46,17 @@
 							<ion-icon name="happy" class="text-small" slot="start"></ion-icon>
 							<ion-label class="text-small">{{ contact.contactType }}</ion-label>
 						</ion-item>
-						<ion-button expand="full" color="primary" (click)="sendMail()">SEND EMAIL</ion-button>
+
+						<ion-item color="transparent" lines="none">
+							<ion-button color="primary" slot="start">
+								<ion-icon name="pencil" slot="start"></ion-icon>
+								EDITAR
+							</ion-button>
+							<ion-button color="danger" slot="end" (click)="deleteContact(id)">
+								<ion-icon name="trash" slot="start"></ion-icon>
+								BORRAR
+							</ion-button>
+						</ion-item>
 					</ion-card-content>
 				</ion-card>
 			</ion-col>

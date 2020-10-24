@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { NewContactPageRoutingModule } from './new-contact-routing.module';
 
 import { NewContactPage } from './new-contact.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewContactPageRoutingModule
+		NewContactPageRoutingModule,
+		ReactiveFormsModule,
+		ComponentsModule
   ],
   declarations: [NewContactPage]
 })

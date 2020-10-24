@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from 'src/app/services/contacts/contacts.service';
 
@@ -18,7 +17,7 @@ export class CardComponent implements OnInit {
   constructor(
 		private contactsService: ContactsService,
 		private alertControler: AlertController,
-		private router: Router
+		private navCtrl: NavController,
 	) {}
 
 	ngOnInit() {
@@ -41,7 +40,6 @@ export class CardComponent implements OnInit {
 					handler: () => {
 						this.contactsService.deleteContact(contactId).subscribe(() => {
 							this.contactoBorrado.emit();
-							this.ngOnInit();
 						});
 					}
 				},
@@ -60,7 +58,7 @@ export class CardComponent implements OnInit {
 	}
 
 	showDetail(id: number) {
-		this.router.navigate(['contacts','detail', id])
+		this.navCtrl.navigateRoot(['/contacts','detail', id])
 	}
 
 	comprobarContactos() {

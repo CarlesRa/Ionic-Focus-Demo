@@ -4,6 +4,7 @@ import { CardComponent } from './shared/card/card.component';
 import { IonicModule } from '@ionic/angular';
 import { FabComponent } from './shared/fab/fab.component';
 import { SearchComponent } from './shared/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,16 +12,18 @@ import { SearchComponent } from './shared/search/search.component';
   declarations: [
 		CardComponent,
 		FabComponent,
-		SearchComponent
+		SearchComponent,
 	],
   imports: [
 		CommonModule,
 		IonicModule,
+		ReactiveFormsModule,
+		FormsModule
 	],
 	exports: [
 		CardComponent,
 		FabComponent,
-		SearchComponent
+		SearchComponent,
 	]
 })
 export class ComponentsModule { }
