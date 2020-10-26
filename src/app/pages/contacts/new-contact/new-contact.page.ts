@@ -15,68 +15,14 @@ import { LoadingService } from 'src/app/services/loading/loading.service';
 })
 export class NewContactPage implements OnInit {
 
-	forma: FormGroup;
-	firstName: string;
-	lastName: string;
-	email: string;
-	phone: string;
-	city: string;
-	country: string;
-	contactType: ContactType;
+	
 	mostrar = true;
+	title = "Nuevo Contacto";
+	subtitle = "Crear nuevo Contacto";
+	textBtn = "Crear";
 
-  constructor(
-		private contactsService: ContactsService,
-		private formBd: FormBuilder,
-		private loadingService: LoadingService,
-		private alertService: AlertService,
-		private router: Router,
-		private navCtrl: NavController
-	) { 
+  constructor() { }
 
-	}
-
-  ngOnInit() {
-		this.createForm();
-	}
+  ngOnInit() {}
 	
-	onSubmit() {
-		if (this.forma.valid) {
-
-			this.loadingService.showLoading('Guardando Contacto');
-
-			const contact: Contact = new Contact(
-				this.firstName, this.lastName, this.email,
-				this.phone, this.city, this.country, this.contactType
-			);
-
-			this.contactsService.createContact(contact).subscribe(() => {
-				this.loadingService.hideLoading();
-				this.alertService.presentAlert('Contacto creado satisfactoriamente!!');
-				this.navCtrl.navigateRoot(['/contacts']);
-			},
-			() => {
-				this.loadingService.hideLoading();
-				this.alertService.presentAlert('Error al crear contacto');
-				this.router.navigate(['contacts']);
-			});
-			
-		}
-	}
-	
-	createForm() {
-		this.forma = this.formBd.group({
-			firstName: ['', [Validators.required]],
-			lastName: ['', ],
-			email: ['', [Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'),
-									 Validators.required]],
-			phone: ['', Validators.required],
-			city: ['', ],
-			country: [''],
-			contactType: ['', Validators.required]
-
-		})
-	}
-
-
 }

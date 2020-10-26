@@ -47,6 +47,16 @@ export class ContactsService {
 												                 contact, httpHeader)
 	}
 
+	updateContact(idContact: any, contact: Contact) {
+		const httpHeader = {
+			headers: new HttpHeaders({'Content-Type' : 'application/json',
+			'Access-Control-Allow-Origin': '*'})
+		};
+		
+		return this.httpClient.put(`${this.BASE_URL}/update/${idContact}`, 
+		contact)
+	}
+
 	deleteContact(contactId: number) {
 		
 		return this.httpClient.delete(`${this.BASE_URL}/delete/${contactId}`);

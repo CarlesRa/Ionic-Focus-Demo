@@ -42,13 +42,15 @@ export class DetailPage implements OnInit {
 			this.contact.lastName.charAt(0);
 	}
 
+	editContact() {
+		this.navCtrl.navigateRoot(['contacts','edit',this.contact.id]);
+	}
+
 	sendMail() {
 		this.router.navigate(['contacts', 'send', this.contact.id])
 	}
 
-	async deleteContact(contactId) {
-		console.log('entra delete');
-		console.log(contactId);
+	async deleteContact() {
 		
 		const alert = await this.alertCtrl.create({
 			header: 'Borrar Contacto',
@@ -59,7 +61,7 @@ export class DetailPage implements OnInit {
 					text: 'SÍ',
 					role: 'success',
 					handler: () => {
-						this.contactsService.deleteContact(contactId).subscribe(() => {
+						this.contactsService.deleteContact(this.contact.id).subscribe(() => {
 							console.log('intente eliminar');
 							this.navCtrl.navigateRoot(['/contacts']);
 						},

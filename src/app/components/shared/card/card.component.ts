@@ -52,6 +52,10 @@ export class CardComponent implements OnInit {
 		alert.present();
 	}
 
+	updateContact(contactId: number) {
+		this.navCtrl.navigateRoot(['contacts','edit', contactId]);
+	}
+
 	getInitials(contact: Contact): string {
 		return contact.firstName.charAt(0) + 
 					 contact.lastName.charAt(0);

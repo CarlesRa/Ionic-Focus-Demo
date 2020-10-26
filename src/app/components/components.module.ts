@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FabComponent } from './shared/fab/fab.component';
 import { SearchComponent } from './shared/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './shared/form/form.component';
 
 
 
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		CardComponent,
 		FabComponent,
 		SearchComponent,
+		FormComponent
 	],
   imports: [
 		CommonModule,
@@ -24,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		CardComponent,
 		FabComponent,
 		SearchComponent,
+		FormComponent
 	]
 })
 export class ComponentsModule { }
