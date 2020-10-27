@@ -22,9 +22,7 @@ export class CardComponent implements OnInit {
 
 	ngOnInit() {
 		
-		setTimeout(() => {
-			this.comprobarContactos();
-		},1000);
+		
 	}
 
 	async removeContact(contactId: number) {
@@ -67,7 +65,7 @@ export class CardComponent implements OnInit {
 
 	comprobarContactos() {
 
-		if (this.contactos.length <= 0) {
+		if (this.contactos) {
 
 			this.sinContactos.emit(true);
 		}
