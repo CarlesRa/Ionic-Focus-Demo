@@ -123,4 +123,12 @@ export class FormComponent implements OnInit {
 		this.contactType = this.contact.contactType;
 	}
 
+	invalidField(fieldName: string) {
+
+		if (!this.forma.get(fieldName)) {
+			return;
+		}
+		return this.forma.get(fieldName).invalid &&
+		this.forma.get(fieldName).touched;
+	}
 }

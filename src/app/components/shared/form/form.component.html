@@ -5,38 +5,58 @@
 	</ion-card-header>
 	<ion-card-content>
 		<form [formGroup]="forma" (ngSubmit)="onSubmit()" autocomplete="off" novalidate *ngIf="mostrar"> 
+
 			<ion-item>
-				<ion-label position="floating">Nombre</ion-label>
-				<ion-input formControlName="firstName" [(ngModel)]="firstName"></ion-input>
+				<ion-label position="floating">*Nombre</ion-label>
+				<ion-input [class.is-invalid]="invalidField('firstName')"  formControlName="firstName" [(ngModel)]="firstName"></ion-input>
 			</ion-item>
+			<small class="text-red" *ngIf="invalidField('firstName')">
+				Tiene que introducir un nombre...
+			</small>
+
 			<ion-item>
 				<ion-label position="floating">Apellido</ion-label>
 				<ion-input formControlName="lastName" [(ngModel)]="lastName"></ion-input>
 			</ion-item>
+
 			<ion-item>
-				<ion-label position="floating">Correo</ion-label>
-				<ion-input formControlName="email" [(ngModel)]="email"></ion-input>
+				<ion-label position="floating">*Correo</ion-label>
+				<ion-input [class.is-invalid]="invalidField('email')" formControlName="email" [(ngModel)]="email"></ion-input>
 			</ion-item>
+			<small class="text-red" *ngIf="invalidField('email')">
+				Tiene que introducir un correo...
+			</small>
+
 			<ion-item>
-				<ion-label position="floating">Teléfono</ion-label>
-				<ion-input formControlName="phone" type="number" [(ngModel)]="phone"></ion-input>
+				<ion-label position="floating">*Teléfono</ion-label>
+				<ion-input [class.is-invalid]="invalidField('phone')" formControlName="phone" type="number" [(ngModel)]="phone"></ion-input>
 			</ion-item>
+			<small class="text-red" *ngIf="invalidField('phone')">
+				Tiene que introducir un teléfono...
+			</small>
+
 			<ion-item>
 				<ion-label position="floating">Ciudad</ion-label>
 				<ion-input formControlName="city" [(ngModel)]="city"></ion-input>
 			</ion-item>
+
 			<ion-item>
 				<ion-label position="floating">País</ion-label>
 				<ion-input formControlName="country" [(ngModel)]="country"></ion-input>
 			</ion-item>
+
 			<ion-item>
-				<ion-label position="floating">Tipo de Contacto</ion-label>
-				<ion-select formControlName="contactType" [(ngModel)]="contactType">
+				<ion-label position="floating">*Tipo de Contacto</ion-label>
+				<ion-select [class.is-invalid]="invalidField('contactType')" formControlName="contactType" [(ngModel)]="contactType">
 					<ion-select-option value="Amistad">Amistad</ion-select-option>
 					<ion-select-option value="Empleado">Empleado</ion-select-option>
 					<ion-select-option value="Cliente">Cliente</ion-select-option>
 				</ion-select>
 			</ion-item>
+			<small class="text-red" *ngIf="invalidField('contactType')">
+				Seleccione un tipo de contacto...
+			</small>
+
 			<ion-button [disabled]="!forma.valid" expand="block" type="submit" color="primary">{{ textBtn }}</ion-button>
 		</form>
 	</ion-card-content>
