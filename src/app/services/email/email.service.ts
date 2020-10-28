@@ -7,7 +7,7 @@ import { Email } from 'src/app/models/email.model';
 })
 export class EmailService {
 
-	readonly BASE_URL = "http://focus360def.herokuapp.com/email/send"
+	readonly BASE_URL = "https://focus360def.herokuapp.com/email/send"
 
 	constructor(private httpClient: HttpClient) { }
 	
