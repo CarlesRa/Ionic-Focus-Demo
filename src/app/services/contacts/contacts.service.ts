@@ -7,7 +7,7 @@ import { Contact } from 'src/app/models/contact.model';
 })
 export class ContactsService {
 
-	readonly BASE_URL = "http://focus360def.herokuapp.com/contacts";
+	readonly BASE_URL = "https://focus360def.herokuapp.com/contacts";
 
   constructor(
 		private httpClient: HttpClient

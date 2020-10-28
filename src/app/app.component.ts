@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { MenuController, Platform } from '@ionic/angular';
+import { MenuController, NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
@@ -17,6 +17,7 @@ export class AppComponent {
 		private statusBar: StatusBar,
 		private menu: MenuController,
 		private router: Router,
+		private navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -33,6 +34,6 @@ export class AppComponent {
 	}
 
 	addContact(){
-		this.router.navigate(['contacts','new'])
+		this.navCtrl.navigateRoot(['/contacts','new'])
 	}
 }

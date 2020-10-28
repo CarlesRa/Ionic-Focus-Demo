@@ -52,6 +52,9 @@ export class AllPage implements OnInit {
 				this.contactsService.getAll().subscribe((contacts: Contact[]) => {
 				this.contacts = contacts.sort((a, b) => a.firstName < b.firstName ? -1 : 1);
 				this.loadingService.hideLoading();	
+				if (contacts.length == 0) {
+					this.mostrarLabel = true;
+				}
 			},
 			() => {
 				console.error('error en la petición');

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, ModalController, NavController } from '@ionic/angular';
-import { ContactType } from 'src/app/enums/type.enum';
+import { AlertController, NavController } from '@ionic/angular';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from 'src/app/services/contacts/contacts.service';
+import { LoadingService } from 'src/app/services/loading/loading.service';
 
 @Component({
 	selector: 'app-detail',
@@ -22,16 +22,18 @@ export class DetailPage implements OnInit {
 		private contactsService: ContactsService,
 		private router: Router,
 		private navCtrl: NavController,
-		private alertCtrl: AlertController
+		private alertCtrl: AlertController,
+		private loadingService: LoadingService
 	) {
 
 		this.id = this.aRoute.snapshot.paramMap.get('id');
-
+		this.loadingService.showLoading('Cargando información...')
 		this.contactsService.getContactById(this.id).
 			subscribe((contact: Contact) => {
 				this.contact = contact;
 				this.initials = this.getInitials();
 				this.mostrar = true;
+				this.loadingService.hideLoading();
 			});
 	}
 

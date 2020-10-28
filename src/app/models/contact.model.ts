@@ -13,4 +13,6 @@ export class Contact {
 		public contactType: ContactType
 	){}
 
+	
+
 }

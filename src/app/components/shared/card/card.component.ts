@@ -20,8 +20,16 @@ export class CardComponent implements OnInit {
 		private navCtrl: NavController,
 	) {}
 
-	ngOnInit() {
+	ngOnInit() {		
 		
+	}
+
+	ionViewWillEnter(){
+		console.log('hola');
+		
+	}
+	ionViewDidEnter(){
+		console.log('hola');
 		
 	}
 
@@ -65,7 +73,7 @@ export class CardComponent implements OnInit {
 
 	comprobarContactos() {
 
-		if (this.contactos) {
+		if (this.contactos.length == 0) {
 
 			this.sinContactos.emit(true);
 		}
